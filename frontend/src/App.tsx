@@ -1,21 +1,21 @@
-import './App.css'
 import CarrosselSection from './sections/CarrosselSection'
 import Footer from './sections/Footer'
 import Header from './sections/Header'
 import MainSection from './sections/MainSection'
 import ProductsSection from './sections/ProductsSection'
 import TestimonialsSection from './sections/TestimonialsSection'
+import "./index.css";
 
 function App() {
 
   return (
-    <div>
+    <div className='bg-[#232220] overflow-x-hidden'>
       <Header/>
       <MainSection/>
       <CarrosselSection/>
-      <ProductsSection/>
+      {/* <ProductsSection/>
       <TestimonialsSection/>
-      <Footer/>
+      <Footer/> */}
     </div>
   )
 }
