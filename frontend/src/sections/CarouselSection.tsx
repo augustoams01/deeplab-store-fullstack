@@ -4,7 +4,7 @@ import canImage2 from '../assets/images/can-section-2.png'
 import canImage3 from '../assets/images/can-section-2-2.png'
 import { ProductCard } from '../components/ProductCard'
 
-function CarrosselSection() {
+function CarouselSection() {
   return (
 
     <div className='section-texture min-h-screen w-screen flex flex-col items-center relative overflow-hidden px-10 py-20'>
@@ -42,4 +42,4 @@ function CarrosselSection() {
   )
 }
 
-export default CarrosselSection
+export default CarouselSection

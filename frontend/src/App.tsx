@@ -1,4 +1,4 @@
-import CarrosselSection from './sections/CarrosselSection'
+import CarrosselSection from './sections/CarouselSection'
 import Footer from './sections/Footer'
 import Header from './sections/Header'
 import MainSection from './sections/MainSection'
@@ -13,8 +13,8 @@ function App() {
       <Header/>
       <MainSection/>
       <CarrosselSection/>
-      {/* <ProductsSection/>
-      <TestimonialsSection/>
+      <ProductsSection/>
+      {/* <TestimonialsSection/>
       <Footer/> */}
     </div>
   )
