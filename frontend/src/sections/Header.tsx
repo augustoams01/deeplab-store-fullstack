@@ -6,7 +6,7 @@ function Header() {
     <div className="flex justify-around items-center fixed top-4 w-full z-40">
       
       <div className="w-[100px] lg:block md:block sm:hidden">
-        <h1 className="text-2xl text-[#1add67] font-semibold font-serif lg:block md:block sm:hidden">DeepLab.</h1>
+        <h1 className="text-2xl text-primary font-semibold font-serif lg:block md:block sm:hidden">DeepLab.</h1>
       </div>
       
       <div className="flex items-center justify-center">

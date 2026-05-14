@@ -1,4 +1,5 @@
 import canImage from '../assets/images/can-section-1.png'
+import liquidImage from '../assets/images/liquid-section-1.png'
 import textureImage from '../assets/images/texture-section-1.jpg'
 
 function MainSection() {
@@ -11,14 +12,24 @@ function MainSection() {
       
       <div className="bg-[#0f0f0f]/80 w-[97%] h-[86%] rounded-3xl mt-[58px] relative overflow-hidden">
 
-        {/* IMAGEM DA LATA */}
         <img 
           src={canImage} 
           alt="" 
           className='absolute w-[55%] -bottom-[280px] left-0 z-10'
         />
 
-        {/* TEXTO */}
+        <img 
+          src={liquidImage}
+          alt=""
+          className='absolute w-[40%] -bottom-[270px] left-[340px] rotate-45' 
+         />
+
+        <img 
+          src={liquidImage}
+          alt=""
+          className='absolute w-[40%] -bottom-[200px] -left-[140px] -rotate-45' 
+         />
+
         <div className='absolute left-[55%] top-1/2 -translate-y-1/2 w-[35%] text-white z-20'>
           
           <h1 className='text-6xl font-bold leading-tight uppercase tracking-wider'>
@@ -43,11 +54,11 @@ function MainSection() {
           </div>
 
           <div className='mt-6 flex gap-5'>
-            <button className=' py-3 px-8 rounded-full bg-[#1add67] text-gray-300 font-semibold'>
+            <button className=' py-3 px-8 rounded-full bg-primary text-gray-300 font-semibold'>
               Shop Now
             </button>
 
-            <button className='py-3 px-8 rounded-full bg-transparent border border-[#1add67] text-gray-300'>
+            <button className='py-3 px-8 rounded-full bg-transparent border border-primary text-gray-300'>
               Explore Flavors
             </button>
           </div>
