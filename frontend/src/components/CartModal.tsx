@@ -10,10 +10,11 @@ type CartModalProps = {
 type CartItem = {
   id: number
   quantity: number
-  product: {
+    product: {
     name: string
     price: number
-  }
+    image: string
+    }
 }
 
 type Cart = {
@@ -86,26 +87,34 @@ export function CartModal({
 
           {
             cart?.items.map((item) => (
+<div
+  key={item.id}
+  className="bg-white/5 rounded-2xl p-4 flex gap-4"
+>
 
-              <div
-                key={item.id}
-                className="bg-white/5 rounded-2xl p-4"
-              >
+  <img
+    src={item.product.image}
+    alt={item.product.name}
+    className="w-24 h-24 object-contain bg-black/20 rounded-xl"
+  />
 
-                <h3 className="text-white text-lg">
-                  {item.product.name}
-                </h3>
+  <div className="flex flex-col justify-center">
 
-                <p className="text-gray-400">
-                  Quantity: {item.quantity}
-                </p>
+    <h3 className="text-white text-lg">
+      {item.product.name}
+    </h3>
 
-                <p className="text-primary mt-2">
-                  R$ {(item.product.price * item.quantity).toFixed(2)}
-                </p>
+    <p className="text-gray-400">
+      Quantity: {item.quantity}
+    </p>
 
-              </div>
+    <p className="text-primary mt-2">
+      R$ {(item.product.price * item.quantity).toFixed(2)}
+    </p>
 
+  </div>
+
+</div>
             ))
           }
 

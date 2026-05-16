@@ -102,7 +102,7 @@ export function ProductCard({
             -
           </button>
 
-          <span className="text-white border-t border-b border-b-gray-300/20 border-t-gray-300/20 bg-white/10 h-[80%] text-lg flex items-center z-50 px-1">
+          <span className="text-white border-t border-b border-b-gray-300/20 border-t-gray-300/20 bg-white/10 h-[80%] text-lg flex items-center px-1">
             {quantity}
           </span>
 

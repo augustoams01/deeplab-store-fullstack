@@ -1,20 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import canImage from '../assets/images/can-section-1.png'
-import canImage2 from '../assets/images/can-section-2.png'
-import canImage3 from '../assets/images/can-section-2-2.png'
-
 import { ProductCard } from '../components/ProductCard'
 
 import { api } from '../services/api'
 
 import type { Product } from '../types/products'
 
-const images = [
-  canImage,
-  canImage2,
-  canImage3,
-]
+
 
 function CarouselSection() {
 
@@ -57,7 +49,7 @@ function CarouselSection() {
             <ProductCard
               key={product.id}
               id={product.id}
-              image={images[index % images.length]}
+              image={product.image}
               title={product.name}
               description={product.description}
               price={Number(product.price)}
