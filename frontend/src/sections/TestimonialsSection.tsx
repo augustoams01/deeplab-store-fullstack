@@ -20,7 +20,7 @@ const benefits = [
 export const TestimonialsSection = () => {
   return (
 
-    <section className="section-texture min-h-screen w-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+    <section id="benefits" className="section-texture min-h-screen w-screen flex items-center justify-center px-6 py-20 overflow-hidden">
 
       <div className="w-full max-w-[1450px]">
 

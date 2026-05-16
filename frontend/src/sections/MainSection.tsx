@@ -3,9 +3,20 @@ import liquidImage from '../assets/images/liquid-section-1.png'
 import textureImage from '../assets/images/texture-section-1.jpg'
 
 function MainSection() {
+
+  const scrollToShop = () => {
+  const section = document.getElementById('shop')
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+}
+
   return (
     <section
-      
+      id='main'
       className='section-texture h-screen w-screen flex items-center justify-center relative overflow-hidden'
 
     >
@@ -54,11 +65,11 @@ function MainSection() {
           </div>
 
           <div className='mt-6 flex gap-5'>
-            <button className=' py-3 px-8 rounded-full bg-primary text-gray-300 font-semibold'>
+            <button   onClick={scrollToShop} className=' py-3 px-8 rounded-full bg-primary text-gray-300 font-semibold'>
               Shop Now
             </button>
 
-            <button className='py-3 px-8 rounded-full bg-transparent border border-primary text-gray-300'>
+            <button   onClick={scrollToShop} className='py-3 px-8 rounded-full bg-transparent border border-primary text-gray-300'>
               Explore Flavors
             </button>
           </div>

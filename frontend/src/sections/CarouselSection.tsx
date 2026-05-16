@@ -35,7 +35,7 @@ function CarouselSection() {
 
   return (
 
-    <div className='section-texture min-h-screen w-screen flex flex-col items-center relative overflow-hidden px-10 py-20'>
+    <div id='shop' className='section-texture  min-h-screen w-screen flex flex-col items-center relative overflow-hidden px-10 py-20'>
 
       <h1 className="text-6xl font-bold text-gray-300">
         Discover Our Collections

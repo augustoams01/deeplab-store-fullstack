@@ -26,10 +26,10 @@ function Header() {
 
           <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur">
 
-            <a href="#" className="nav-item">Home</a>
-            <a href="#projects" className="nav-item">Shop</a>
-            <a href="#products" className="nav-item">Products</a>
-            <a href="#about" className="nav-item">Testemonials</a>
+            <a href="#main" className="nav-item">Home</a>
+            <a href="#shop" className="nav-item">Shop</a>
+            <a href="#shop" className="nav-item">Products</a>
+            <a href="#benefits" className="nav-item">Benefits</a>
 
             <a
               href="#contact"

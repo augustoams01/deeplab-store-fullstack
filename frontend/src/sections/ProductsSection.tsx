@@ -4,7 +4,15 @@ import can2 from '../assets/images/can-section-3.png'
 
 function ProductsSection() {
 
-  const productImages = [1, 2, 3, 4]
+const scrollToShop = () => {
+  const section = document.getElementById('shop')
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+}
 
   return (
 
@@ -106,11 +114,11 @@ function ProductsSection() {
 
           <div className="mt-4 flex flex-wrap gap-4">
 
-            <button className="px-8 py-3 rounded-full bg-primary text-black font-bold text-base hover:scale-[1.02] transition duration-300">
-              Add To Cart
+            <button   onClick={scrollToShop} className="px-8 py-3 rounded-full bg-primary text-black font-bold text-base hover:scale-[1.02] transition duration-300">
+              See More Flavors
             </button>
 
-            <button className="px-8 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary hover:text-black transition duration-300">
+            <button   onClick={scrollToShop} className="px-8 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary hover:text-black transition duration-300">
               Explore More
             </button>
 

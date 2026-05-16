@@ -1,7 +1,19 @@
 function Footer() {
-  return (
 
-    <section className="section-texture min-h-screen w-screen flex items-center justify-center px-6 py-16 overflow-hidden relative">
+  const scrollToShop = () => {
+  const section = document.getElementById('shop')
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+    })
+    }
+  }
+
+  return (
+    
+
+    <section id="contact" className="section-texture min-h-screen w-screen flex items-center justify-center px-6 py-16 overflow-hidden relative">
 
       <div className="absolute bottom-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/20 blur-[180px] rounded-full pointer-events-none" />
 
@@ -25,11 +37,11 @@ function Footer() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
 
-            <button className="px-10 py-4 rounded-full bg-primary text-black font-bold text-base hover:scale-[1.03] transition-all duration-300 shadow-[0_10px_40px_rgba(255,255,255,0.08)]">
+            <button   onClick={scrollToShop} className="px-10 py-4 rounded-full bg-primary text-black font-bold text-base hover:scale-[1.03] transition-all duration-300 shadow-[0_10px_40px_rgba(255,255,255,0.08)]">
               Order Now
             </button>
 
-            <button className="px-10 py-4 rounded-full border border-white/15 bg-white/5 text-gray-200 font-semibold hover:bg-white/10 hover:border-primary/30 transition-all duration-300">
+            <button   onClick={scrollToShop} className="px-10 py-4 rounded-full border border-white/15 bg-white/5 text-gray-200 font-semibold hover:bg-white/10 hover:border-primary/30 transition-all duration-300">
               Explore Products
             </button>
 
