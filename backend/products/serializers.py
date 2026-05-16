@@ -3,6 +3,10 @@ from .models import Product, Cart, CartItem
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    """
+    Serializa todos os campos do modelo Product.
+    Usado para listagem e detalhamento de produtos.
+    """
 
     class Meta:
         model = Product
@@ -10,6 +14,13 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CartItemSerializer(serializers.ModelSerializer):
+    """
+    Serializador de itens do carrinho.
+
+    Estratégia:
+    - 'product' → leitura completa (nested serializer)
+    - 'product_id' → escrita (relacionamento via ID)
+    """
 
     product = ProductSerializer(read_only=True)
 
@@ -31,6 +42,9 @@ class CartItemSerializer(serializers.ModelSerializer):
 
 
 class CartSerializer(serializers.ModelSerializer):
+    """
+    Serializa o carrinho incluindo seus itens relacionados.
+    """
 
     items = CartItemSerializer(many=True, read_only=True)
 
