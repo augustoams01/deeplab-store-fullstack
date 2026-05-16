@@ -14,8 +14,8 @@ function App() {
       <MainSection/>
       <CarrosselSection/>
       <ProductsSection/>
-      {/* <TestimonialsSection/>
-      <Footer/> */}
+      <TestimonialsSection/>
+      <Footer/>
     </div>
   )
 }

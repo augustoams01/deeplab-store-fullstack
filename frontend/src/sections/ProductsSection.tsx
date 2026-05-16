@@ -1,7 +1,5 @@
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
 import { GiWrappedSweet } from "react-icons/gi";
-
-import can1 from '../assets/images/can-section-3-2.png'
 import can2 from '../assets/images/can-section-3.png'
 
 function ProductsSection() {
@@ -14,41 +12,16 @@ function ProductsSection() {
 
       <div className="w-full max-w-[1500px] flex flex-col lg:flex-row items-center gap-10">
 
-        {/* LEFT SIDE */}
         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
 
-          {/* MAIN IMAGE */}
           <img
             src={can2}
             alt="Main Product"
             className="w-[52%] max-w-[360px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
           />
 
-          {/* GALLERY */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4 max-w-[500px]">
-
-            {productImages.map((item) => (
-
-              <div
-                key={item}
-                className="bg-dark border border-white/10 rounded-2xl flex items-center justify-center w-[110px] h-[110px] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-primary cursor-pointer"
-              >
-
-                <img
-                  src={can1}
-                  alt="Product Variation"
-                  className="w-[65%] object-contain"
-                />
-
-              </div>
-
-            ))}
-
-          </div>
-
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
 
           <h2 className="text-4xl mt-10 lg:text-6xl font-black text-gray-200 leading-[1.05] max-w-[700px]">
