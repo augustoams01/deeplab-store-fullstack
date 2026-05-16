@@ -28,7 +28,7 @@ function Header() {
 
             <a href="#main" className="nav-item">Home</a>
             <a href="#shop" className="nav-item">Shop</a>
-            <a href="#shop" className="nav-item">Products</a>
+            <a href="#about" className="nav-item">About</a>
             <a href="#benefits" className="nav-item">Benefits</a>
 
             <a

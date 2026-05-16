@@ -16,7 +16,7 @@ const scrollToShop = () => {
 
   return (
 
-    <section className="section-texture h-screen w-screen overflow-hidden flex items-center justify-center px-8">
+    <section id="about" className="section-texture h-screen w-screen overflow-hidden flex items-center justify-center px-8">
 
       <div className="w-full max-w-[1500px] flex flex-col lg:flex-row items-center gap-10">
 
