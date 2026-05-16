@@ -1,6 +1,6 @@
 # DeepLab Store Fullstack
 
-Aplicação fullstack de e-commerce desenvolvida com arquitetura moderna utilizando React no frontend e Django REST Framework no backend, totalmente containerizada com Docker.
+Aplicação fullstack de e-commerce desenvolvida com arquitetura moderna utilizando React no frontend e Django REST Framework no backend, totalmente containerizada com Docker. Aplicação feita para processo seletivo strategi!
 
 ---
 
