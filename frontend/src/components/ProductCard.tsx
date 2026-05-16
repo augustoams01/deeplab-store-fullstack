@@ -38,8 +38,6 @@ export function ProductCard({
 
     let cartId: string | null = localStorage.getItem('cart_id')
 
-    // cria carrinho caso não exista
-
     if (!cartId) {
 
       const cartResponse = await api.post('/carts/')
@@ -48,8 +46,6 @@ export function ProductCard({
 
       localStorage.setItem('cart_id', cartId)
     }
-
-    // adiciona item
 
     await api.post('/cart-items/', {
       cart: cartId,
