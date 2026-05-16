@@ -185,7 +185,7 @@ docker compose exec frontend sh
 
 ## Limpar localStorage (frontend)
 
-Para remover dados antigos salvos no navegador (ex: carrinho, cache de estado):
+Para remover dados antigos salvos no navegador caso tenha dado erro ao adicionar produto ao carrinho:
 
 Abra o console do navegador (F12) e execute:
 
