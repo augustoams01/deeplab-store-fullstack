@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { api } from '../services/api'
 
+/**
+ * Props do card de produto.
+ * Representa os dados vindos da API.
+ */
 type ProductCardProps = {
   id: number
   image: string
@@ -9,6 +13,14 @@ type ProductCardProps = {
   price: number
 }
 
+/**
+ * Card de produto.
+ *
+ * Responsabilidades:
+ * - Controlar quantidade local
+ * - Adicionar produto ao carrinho via API
+ * - Criar carrinho automaticamente se não existir
+ */
 export function ProductCard({
   id,
   image,
@@ -30,47 +42,49 @@ export function ProductCard({
     }
   }
 
- async function addToCart() {
+  /**
+   * Adiciona produto ao carrinho.
+   *
+   * Fluxo:
+   * 1. Verifica se existe cart_id no localStorage
+   * 2. Se não existir, cria um novo carrinho na API
+   * 3. Adiciona item ao carrinho com quantidade selecionada
+   */
+  async function addToCart() {
+    try {
+      setLoading(true)
 
-  try {
+      let cartId: string | null = localStorage.getItem('cart_id')
 
-    setLoading(true)
+      // Cria carrinho caso não exista
+      if (!cartId) {
+        const cartResponse = await api.post('/carts/')
+        cartId = String(cartResponse.data.id)
 
-    let cartId: string | null = localStorage.getItem('cart_id')
+        localStorage.setItem('cart_id', cartId)
+      }
 
-    if (!cartId) {
+      // Adiciona item ao carrinho
+      await api.post('/cart-items/', {
+        cart: cartId,
+        product_id: id,
+        quantity,
+      })
 
-      const cartResponse = await api.post('/carts/')
+      alert('Produto adicionado ao carrinho')
 
-      cartId = String(cartResponse.data.id)
+    } catch (error) {
+      console.error(error)
+      alert('Erro ao adicionar produto')
 
-      localStorage.setItem('cart_id', cartId)
+    } finally {
+      setLoading(false)
     }
-
-    await api.post('/cart-items/', {
-      cart: cartId,
-      product_id: id,
-      quantity,
-    })
-
-    alert('Produto adicionado ao carrinho')
-
-  } catch (error) {
-
-    console.error(error)
-    alert('Erro ao adicionar produto')
-
-  } finally {
-
-    setLoading(false)
-
   }
-}
 
   const totalPrice = price * quantity
 
   return (
-
     <div className="w-[380px] rounded-3xl p-6 flex flex-col items-center">
 
       <img
@@ -80,7 +94,6 @@ export function ProductCard({
       />
 
       <div className="mt-4 text-center">
-
         <h2 className="text-2xl font-semibold text-white">
           {title}
         </h2>
@@ -88,49 +101,30 @@ export function ProductCard({
         <p className="text-gray-400 text-sm mt-2 leading-relaxed">
           {description}
         </p>
-
       </div>
 
+      {/* Controle de quantidade + ação */}
       <div className='flex gap-5'>
 
-        <div className="mt-6 flex items-center ">
+        <div className="mt-6 flex items-center">
+          <button onClick={decreaseQuantity}>-</button>
 
-          <button
-            onClick={decreaseQuantity}
-            className="cursor-pointer w-10 h-10 border-l border-t border-b border-b-gray-300/20 border-t-gray-300/20 border-l-gray-300/20 rounded-l-full bg-white/10 text-white text-xl"
-          >
-            -
-          </button>
+          <span>{quantity}</span>
 
-          <span className="text-white border-t border-b border-b-gray-300/20 border-t-gray-300/20 bg-white/10 h-[80%] text-lg flex items-center px-1">
-            {quantity}
-          </span>
-
-          <button
-            onClick={increaseQuantity}
-            className="cursor-pointer w-10 h-10 rounded-r-full border-r border-b border-t border-t-gray-300/20 border-b-gray-300/20 border-r-gray-300/20 bg-white/10 text-white text-xl"
-          >
-            +
-          </button>
-
+          <button onClick={increaseQuantity}>+</button>
         </div>
 
         <button
           onClick={addToCart}
           disabled={loading}
-          className="mt-6 py-3 px-4 rounded-full bg-transparent border border-primary text-gray-300 hover:scale-[1.02] transition"
         >
-
-          {
-            loading
-              ? 'Adding...'
-              : `Add To Cart — R$ ${totalPrice.toFixed(2)}`
+          {loading
+            ? 'Adding...'
+            : `Add To Cart — R$ ${totalPrice.toFixed(2)}`
           }
-
         </button>
 
       </div>
-
     </div>
   )
 }
