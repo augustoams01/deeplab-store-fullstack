@@ -3,7 +3,7 @@ import { api } from '../services/api'
 
 /**
  * Props do card de produto.
- * Representa os dados vindos da API.
+ * Representa dados vindos da API.
  */
 type ProductCardProps = {
   id: number
@@ -14,11 +14,11 @@ type ProductCardProps = {
 }
 
 /**
- * Card de produto.
+ * Componente de produto.
  *
  * Responsabilidades:
- * - Controlar quantidade local
- * - Adicionar produto ao carrinho via API
+ * - Gerenciar quantidade local
+ * - Adicionar produto ao carrinho
  * - Criar carrinho automaticamente se não existir
  */
 export function ProductCard({
@@ -43,12 +43,8 @@ export function ProductCard({
   }
 
   /**
-   * Adiciona produto ao carrinho.
-   *
-   * Fluxo:
-   * 1. Verifica se existe cart_id no localStorage
-   * 2. Se não existir, cria um novo carrinho na API
-   * 3. Adiciona item ao carrinho com quantidade selecionada
+   * Adiciona item ao carrinho.
+   * Cria carrinho automaticamente caso não exista.
    */
   async function addToCart() {
     try {
@@ -56,7 +52,6 @@ export function ProductCard({
 
       let cartId: string | null = localStorage.getItem('cart_id')
 
-      // Cria carrinho caso não exista
       if (!cartId) {
         const cartResponse = await api.post('/carts/')
         cartId = String(cartResponse.data.id)
@@ -64,7 +59,6 @@ export function ProductCard({
         localStorage.setItem('cart_id', cartId)
       }
 
-      // Adiciona item ao carrinho
       await api.post('/cart-items/', {
         cart: cartId,
         product_id: id,
@@ -107,20 +101,36 @@ export function ProductCard({
       <div className='flex gap-5'>
 
         <div className="mt-6 flex items-center">
-          <button onClick={decreaseQuantity}>-</button>
 
-          <span>{quantity}</span>
+          <button
+            onClick={decreaseQuantity}
+            className="cursor-pointer w-10 h-10 border-l border-t border-b border-b-gray-300/20 border-t-gray-300/20 border-l-gray-300/20 rounded-l-full bg-white/10 text-white text-xl"
+          >
+            -
+          </button>
 
-          <button onClick={increaseQuantity}>+</button>
+          <span className="text-white border-t border-b border-b-gray-300/20 border-t-gray-300/20 bg-white/10 h-[80%] text-lg flex items-center px-1">
+            {quantity}
+          </span>
+
+          <button
+            onClick={increaseQuantity}
+            className="cursor-pointer w-10 h-10 rounded-r-full border-r border-b border-t border-t-gray-300/20 border-b-gray-300/20 border-r-gray-300/20 bg-white/10 text-white text-xl"
+          >
+            +
+          </button>
+
         </div>
 
         <button
           onClick={addToCart}
           disabled={loading}
+          className="mt-6 py-3 px-4 rounded-full bg-transparent border border-primary text-gray-300 hover:scale-[1.02] transition"
         >
-          {loading
-            ? 'Adding...'
-            : `Add To Cart — R$ ${totalPrice.toFixed(2)}`
+          {
+            loading
+              ? 'Adding...'
+              : `Add To Cart — R$ ${totalPrice.toFixed(2)}`
           }
         </button>
 
