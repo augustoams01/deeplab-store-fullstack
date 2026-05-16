@@ -25,7 +25,7 @@ function ProductsSection() {
         <div className="w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
 
           <h2 className="text-4xl mt-10 lg:text-6xl font-black text-gray-200 leading-[1.05] max-w-[700px]">
-            Tinned Passion Juice
+            DeepLab Soda Drink
           </h2>
 
           <p className="font-bold text-primary text-xs tracking-[0.25em] uppercase">
