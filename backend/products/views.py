@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -13,6 +10,18 @@ from .serializers import (
 
 
 class ProductViewSet(viewsets.ModelViewSet):
+    """
+    API completa de produtos (CRUD).
+
+    Permite:
+    - Criar produto
+    - Listar produtos
+    - Atualizar produto
+    - Deletar produto
+
+    Suporte a upload de imagem via multipart/form-data.
+    """
+
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
@@ -20,10 +29,23 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 
 class CartViewSet(viewsets.ModelViewSet):
+    """
+    API de carrinho.
+
+    Responsável por criar e gerenciar carrinhos.
+    Itens são acessados via relacionamento (CartItem).
+    """
+
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
 
 class CartItemViewSet(viewsets.ModelViewSet):
+    """
+    API de itens do carrinho.
+
+    Permite adicionar, atualizar quantidade e remover produtos do carrinho.
+    """
+
     queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
