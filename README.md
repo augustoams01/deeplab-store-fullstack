@@ -219,4 +219,4 @@ backend/media/
 **Augusto Silva**
 
 GitHub:
-[GitHub - Augusto Silva](https://github.com/augustoams01?utm_source=chatgpt.com)
+[GitHub - Augusto Silva](https://github.com/augustoams01)
