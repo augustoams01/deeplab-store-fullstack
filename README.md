@@ -31,7 +31,7 @@ Aplicação fullstack de e-commerce desenvolvida com arquitetura moderna utiliza
 # 📦 Clonando o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/deeplab-store-fullstack.git
+git clone https://github.com/augustoams01/deeplab-store-fullstack.git
 ```
 
 Entre na pasta do projeto:
@@ -125,6 +125,7 @@ deeplab-store-fullstack/
 │   ├── core/
 │   ├── products/
 │   ├── media/
+│   ├── seeds/
 │   ├── requirements.txt
 │   └── Dockerfile
 │
